@@ -1,0 +1,5 @@
+package ru.mnv.rvlt.core.model;
+
+public enum ResultStatus {
+    OK, DUPLICATE_ACCOUNT, UNKNOWN_ACCOUNT, SAME_ACCOUNT, NOT_EQUAL_CCY, INSUFFICIENT_FUNDS, ILLEGAL_ACCOUNT_NUMBER, UNKNOWN
+}

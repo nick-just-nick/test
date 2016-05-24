@@ -20,11 +20,6 @@ public class TaskTest {
             }
 
             @Override
-            public AccountNumber getAccountNumber() {
-                return null;
-            }
-
-            @Override
             public Long getId() {
                 return null;
             }
@@ -48,11 +43,6 @@ public class TaskTest {
             }
 
             @Override
-            public AccountNumber getAccountNumber() {
-                return null;
-            }
-
-            @Override
             public Long getId() {
                 return null;
             }
@@ -73,11 +63,6 @@ public class TaskTest {
             }
 
             @Override
-            public AccountNumber getAccountNumber() {
-                return null;
-            }
-
-            @Override
             public Long getId() {
                 return null;
             }
@@ -95,11 +80,6 @@ public class TaskTest {
             @Override
             public Result process() {
                 throw new RuntimeException(message);
-            }
-
-            @Override
-            public AccountNumber getAccountNumber() {
-                return null;
             }
 
             @Override

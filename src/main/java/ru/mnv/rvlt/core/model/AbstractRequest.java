@@ -21,12 +21,25 @@ abstract class AbstractRequest implements Request {
     }
 
     @Override
-    public AccountNumber getAccountNumber() {
-        return account.getAccNumber();
+    public Long getId() {
+        return requestInfo.getRequestId();
     }
 
     @Override
-    public Long getId() {
-        return requestInfo.getRequestId();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AbstractRequest that = (AbstractRequest) o;
+
+        if (!account.equals(that.account)) return false;
+        if (!requestInfo.equals(that.requestInfo)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return account.hashCode();
     }
 }

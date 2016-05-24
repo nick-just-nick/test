@@ -41,4 +41,21 @@ public final class Account {
     Result handleRequest(RequestCallback callback) {
         return callback.execute(balance);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Account account = (Account) o;
+
+        if (!accNumber.equals(account.accNumber)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return accNumber.hashCode();
+    }
 }

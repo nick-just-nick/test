@@ -2,6 +2,8 @@ package ru.mnv.rvlt.core.model;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
@@ -48,4 +50,13 @@ public class CompoundRequestTest {
         new CompoundRequest(rq1, rq1);
     }
 
+    @Test
+    public void testHashCode() throws Exception {
+        Account account1 = new Account(AccountNumber.fromString("123456"), "RUB");
+        Account account2 = new Account(AccountNumber.fromString("783456"), "RUB");
+        RequestInfo rqstInfo = mock(RequestInfo.class);
+        CompoundRequest compoundRequest = new CompoundRequest(new WriteOffRequest(account1, new BigDecimal(10), rqstInfo), new RefillRequest(account2, new BigDecimal(10), rqstInfo));
+        assertEquals(account1.hashCode(), compoundRequest.hashCode());
+
+    }
 }

@@ -1,7 +1,5 @@
 package ru.mnv.rvlt.core.model;
 
-import java.util.Optional;
-
 final class CompoundRequest implements Request {
 
     private final Request mainRequest;
@@ -21,12 +19,25 @@ final class CompoundRequest implements Request {
     }
 
     @Override
-    public AccountNumber getAccountNumber() {
-        return mainRequest.getAccountNumber();
+    public Long getId() {
+        return mainRequest.getId();
     }
 
     @Override
-    public Long getId() {
-        return mainRequest.getId();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CompoundRequest that = (CompoundRequest) o;
+
+        if (!mainRequest.equals(that.mainRequest)) return false;
+        if (!tailedRequest.equals(that.tailedRequest)) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return mainRequest.hashCode();
     }
 }
